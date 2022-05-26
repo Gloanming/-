@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.todoDao">
+    <insert id="insertTodoThing"  parameterType="com.example.demo.Vo.todoVo">
+        INSERT INTO todolist
+        (ownerid,contentId,content,isCompleted)
+        VALUES (#{id},#{todoContentId},#{todoContent},#{status})
+    </insert>
+
+    <delete id="deleteByOwnerIdAndContentId" >
+        DELETE FROM todolist WHERE ownerid=#{ownerId} AND content=#{ContentId}
+    </delete>
+
+    <select id="findTodoByIdAndContent" resultType="com.example.demo.service.entity.todo">
+        SELECT * FROM todolist
+        WHERE ownerid=#{ownerId} AND content=#{Content}
+    </select>
+
+    <update id="ChangeContentByOwnerIDAndContentId" parameterType="com.example.demo.service.entity.todo">
+        UPDATE todolist SET content=#{todoContent}
+        WHERE ownerid=#{ownerId} AND contentId=#{ContentId}
+    </update>
+</mapper>
