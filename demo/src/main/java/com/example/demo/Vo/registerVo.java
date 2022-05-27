@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class registerVo {
 
-    private String identity;
+    private String identity; // 用户身份
     private String userName; //用户名
     private String avatarUrl; //头像地址
     private String sex;
