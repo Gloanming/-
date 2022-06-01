@@ -12,8 +12,10 @@ import com.example.demo.Vo.registerVo;
 import com.example.demo.service.entity.todo;
 import com.example.demo.Vo.HasTodoVo;
 import java.util.List;
+import com.example.demo.service.entity.tomatoClock;
+import com.example.demo.Vo.tomatoClockVo;
 
-@RequestMapping("/user")
+@RequestMapping
 @RestController
 public class loginController {
 
@@ -33,15 +35,31 @@ public class loginController {
         Result result = userService.Register(RegisterVo);
         return result;
     }
-    @RequestMapping("TodoList")
+
+    @RequestMapping("/TodoList")
     public Result todoListInfo(@RequestBody todo Todo){
         Result result = userService.addTodoList(Todo);
         return result;
     }
     @RequestMapping("/hasTodo")
     public List<todo> hasTodo(@RequestBody HasTodoVo id){
-        List<todo> todoThing = tododao.findTodoByIdAndContent(id.getIdentity(),id.getContent());
+        List<todo> todoThing = tododao.findTodoById(id.getIdentity());
         return todoThing;
     }
+   @RequestMapping("/deleteTodo")
+    public Result deleteTodo(@RequestBody todo Todo){
+        Result result = userService.deleteTodoList(Todo);
+        return result;
+   }
+   @RequestMapping("/addTomatoClock")
+    public Result tomatoClockInfo(@RequestBody tomatoClock TomatoClock){
+        Result result = userService.addTomatoClock(TomatoClock);
+        return result;
+   }
 
+   @RequestMapping("/deleteTomatoClock")
+    public Result deleteClock(@RequestBody tomatoClock TomatoClock){
+        Result result = userService.deleteTomatoClock(TomatoClock);
+        return result;
+   }
 }

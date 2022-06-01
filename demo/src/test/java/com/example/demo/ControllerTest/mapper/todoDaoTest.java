@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package com.example.demo.ControllerTest.mapper;
 
 import com.example.demo.DemoApplication;
 import org.junit.jupiter.api.Assertions;
@@ -33,6 +33,6 @@ public class todoDaoTest {
 
 
         TodoDao.insertTodoThing(Todo.getOwnerid(), Todo.getContentId(),Todo.getContent(), 0);
-        Assertions.assertEquals(Todo,TodoDao.findTodoByIdAndContent(Todo.getOwnerid(),Todo.getContent()).get(0));
+        Assertions.assertEquals(Todo,TodoDao.findTodoById(Todo.getOwnerid()).get(0));
     }
 }

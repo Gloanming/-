@@ -12,6 +12,8 @@ import com.example.demo.result.Result;
 import com.example.demo.Vo.loginVo;
 import com.example.demo.Vo.registerVo;
 import org.springframework.dao.DuplicateKeyException;
+import com.example.demo.service.entity.tomatoClock;
+import com.example.demo.Dao.tomatoDao;
 @Service
 @Slf4j
 public class userServiceImpl implements userService {
@@ -19,6 +21,8 @@ public class userServiceImpl implements userService {
     UserDao userDao;
     @Autowired
     todoDao TodoDao;
+    @Autowired
+    tomatoDao TomatoDao;
     user User;
     @Override
     public Result add(user person) {
@@ -54,4 +58,21 @@ public class userServiceImpl implements userService {
         return Result.success("添加成功");
     }
 
+    @Override
+    public Result addTomatoClock(tomatoClock TomatoClock){
+
+        TomatoDao.insertTomatoClock(TomatoClock.getOwnerId(),TomatoClock.getContentId(),TomatoClock.getContent(),TomatoClock.getTime(),0);
+        return Result.success("添加成功");
+    }
+    @Override
+    public Result deleteTodoList(todo Todo){
+        TodoDao.deleteByOwnerIdAndContentId(Todo.getOwnerid(),Todo.getContentId());
+        return Result.success("删除成功");
+    }
+    @Override
+    public Result deleteTomatoClock(tomatoClock TomatoClock) {
+        TomatoDao.deleteTomatoClock(TomatoClock.getOwnerId(),TomatoClock.getContentId());
+        return Result.success("删除成功");
+
+    }
 }

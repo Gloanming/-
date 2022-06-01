@@ -12,9 +12,9 @@
         DELETE FROM todolist WHERE ownerid=#{ownerId} AND content=#{ContentId}
     </delete>
 
-    <select id="findTodoByIdAndContent" resultType="com.example.demo.service.entity.todo">
+    <select id="findTodoById" resultType="com.example.demo.service.entity.todo">
         SELECT * FROM todolist
-        WHERE ownerid=#{ownerId} AND content=#{Content}
+        WHERE ownerid=#{ownerId}
     </select>
 
     <update id="ChangeContentByOwnerIDAndContentId" parameterType="com.example.demo.service.entity.todo">

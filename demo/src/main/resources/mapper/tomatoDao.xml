@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.tomatoDao">
+    <insert id="insertTomatoClock">
+        INSERT INTO tomatoclock
+        (ownerId,contentId,content,time,isCompleted)
+        VALUES (#{userId},#{contentId},#{concentrateContent},#{time},#{status})
+    </insert>
+
+    <delete id="deleteTomatoClock">
+        DELETE FROM tomatoclock WHERE ownerId=#{userId} AND contentId=#{ContentId}
+    </delete>
+
+    <select id="FindByOwnerId" resultType="com.example.demo.service.entity.tomatoClock">
+        SELECT * FROM tomatoclock
+        WHERE ownerId=#{ownerId}
+    </select>
+
+    <update id="changeContentByUserIdAndContentId">
+        UPDATE tomatoclock SET content=#{Content}
+        WHERE ownerId=#{userId} AND contentId=#{ContentId}
+    </update>
+</mapper>

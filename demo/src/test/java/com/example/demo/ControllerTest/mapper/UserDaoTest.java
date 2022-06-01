@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package com.example.demo.ControllerTest.mapper;
 
 import com.example.demo.Dao.UserDao;
 import com.example.demo.DemoApplication;

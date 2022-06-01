@@ -9,7 +9,7 @@ import org.springframework.dao.DuplicateKeyException;
 @Repository
 public interface todoDao {
     void insertTodoThing(String id, String todoContentId,String todoContent, int status) throws DuplicateKeyException;
-    List<todo> findTodoByIdAndContent (String ownerId,String Content);
+    List<todo> findTodoById(String ownerId);
 
     void deleteByOwnerIdAndContentId(String ownerId, String ContentId);
 
