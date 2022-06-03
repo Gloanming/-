@@ -21,4 +21,14 @@
         UPDATE tomatoclock SET content=#{Content}
         WHERE ownerId=#{userId} AND contentId=#{ContentId}
     </update>
+    
+    <update id="updateTimeByIdAndContentId">
+        UPDATE tomatoclock SET time=#{time}
+        WHERE ownerId=#{userId} AND contentId=#{ContentId}
+    </update>
+
+    <update id="changeStatusByTimeAndIdAndContentId">
+        UPDATE tomatoclock SET isCompleted=1
+        WHERE time=0 AND ContentId=#{ContentId} AND ownerId=#{userId}
+    </update>
 </mapper>

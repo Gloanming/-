@@ -12,4 +12,6 @@ public interface tomatoDao {
     void deleteTomatoClock(String userId,String ContentId);
     void changeContentByUserIdAndContentId(String userId,String Content,String ContentId);
     List<tomatoClock> FindByOwnerId(String ownerId);
+    void updateTimeByIdAndContentId(String userId,String ContentId,int time);
+    void changeStatusByTimeAndIdAndContentId(String userId,String ContentId);
 }
