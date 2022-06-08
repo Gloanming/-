@@ -23,7 +23,7 @@ public class LoginControllerTest {
 
     @Test
     public void loginTest(){
-        Result res = controller.login(new loginVo("wx1","dao","213412","boy"));
+        Result res = controller.login(new loginVo("wx0","dao","213412","boy"));
         Assertions.assertTrue(res.isFlag());
     }
 }
